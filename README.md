@@ -1,251 +1,262 @@
-# DH Text Microscope
+# TextLab-AHK
 
-*A lightweight AutoHotkey v2 desktop laboratory for digital humanities text exploration and introductory NLP pedagogy*
+*A transparent AutoHotkey v2 text laboratory for digital humanities exploration and introductory NLP teaching*
 
 ---
 
 ## Overview
 
-DH Text Microscope is a standalone Windows desktop application written in AutoHotkey v2 for exploratory text analysis in digital humanities workflows **and for teaching foundational Natural Language Processing concepts to students in a transparent, easy-to-follow way**.
+TextLab-AHK is a lightweight Windows desktop text-analysis environment written entirely in AutoHotkey v2.
 
-Unlike industrial NLP libraries that hide operations behind large frameworks, this program exposes each textual transformation in visible, readable AutoHotkey code. Students can therefore observe exactly how raw text becomes analyzable linguistic data.
+It was developed with two parallel goals:
 
-It is especially useful in:
+1. **to support exploratory digital humanities text work**, and
+2. **to teach beginner Natural Language Processing concepts through highly readable code.**
 
-* digital humanities seminars
-* introductory NLP classes
-* corpus linguistics workshops
-* computational literary studies
-* beginner text-mining instruction
-* OCR cleanup demonstrations
+Most NLP teaching tools today rely on Python ecosystems, external libraries, hidden tokenizers, and abstract package dependencies. TextLab-AHK takes the opposite approach: every core text-processing operation is visible, linear, and easy for students to inspect.
 
-The software acts as both:
+This makes the software not only a usable corpus experimentation tool, but also a practical instructional model for explaining:
 
-* a practical text laboratory
-  and
-* a pedagogical demonstration model of basic NLP operations.
+* tokenization
+* normalization
+* lexical counting
+* n-gram generation
+* concordance construction
+* corpus statistics
+* vocabulary rarity
 
----
-
-## Why This Tool Is Useful for Teaching NLP
-
-Most beginner NLP students struggle because modern NLP environments often require:
-
-* Python package management
-* command line familiarity
-* abstract libraries
-* hidden prebuilt tokenizers
-* opaque machine learning pipelines
-
-DH Text Microscope avoids that complexity.
-
-Because AutoHotkey code is linear and human-readable, students can directly inspect:
-
-* how tokenization works
-* how normalization changes text
-* how punctuation removal affects counts
-* how n-grams are built
-* how lexical diversity is computed
-* how concordance windows are generated
-
-Every function can be opened and read almost like pseudocode.
-
-This makes the application ideal for demonstrating:
-
-> “what NLP is doing under the hood.”
-
-Instead of merely pressing buttons, students can connect interface actions with visible algorithmic procedures.
+Because the codebase is plain AutoHotkey, students can open the scripts and directly follow what each algorithm is doing.
 
 ---
 
-## Pedagogical Design Philosophy
+## Included Versions
 
-The application was intentionally designed around **transparent computational literacy**.
+The project contains two script editions.
 
-Each module corresponds to a classic introductory NLP concept:
+---
 
-| Interface Module | NLP Concept Taught               |
-| ---------------- | -------------------------------- |
-| Corpus Loading   | text ingestion                   |
-| Cleaning Panel   | normalization / preprocessing    |
-| Word Frequency   | token counting                   |
-| Bigram / Trigram | n-gram generation                |
-| Corpus Stats     | lexical measurement              |
-| Hapax Legomena   | rarity / vocabulary distribution |
-| KWIC             | concordance / context retrieval  |
-| Notes            | interpretive annotation          |
+### `app.ahk` — Full Desktop Version
 
-This means the software can be used live in class while students watch:
+This is the main interactive application containing:
 
-raw text → cleaned text → tokens → patterns → contextual interpretation.
+* tabbed corpus workspace
+* cleaning controls
+* analysis modules
+* KWIC concordance panel
+* notes panel
+* export system
+
+It functions as a small desktop textual laboratory.
+
+Recommended for:
+
+* classroom demonstrations
+* digital humanities workshops
+* guided corpus experiments
+* student labs
+
+---
+
+### `app-lite.ahk` — No-GUI Lightweight Version
+
+This version removes the full graphical desktop interface and instead works through:
+
+* keyboard hotkeys
+* clipboard loading
+* file loading
+* popup prompts
+* clipboard result output
+* optional export
+
+It is intentionally simpler and easier for students to inspect because the computational logic is not buried inside GUI layout code.
+
+Recommended for:
+
+* teaching source-code reading
+* beginner NLP exercises
+* algorithm walkthroughs
+* minimalist corpus experiments
+
+---
+
+## Why AutoHotkey?
+
+AutoHotkey was chosen deliberately.
+
+While Python is more powerful in large-scale NLP, AutoHotkey offers several advantages for teaching introductory computational text analysis:
+
+* extremely readable syntax
+* straightforward loops
+* simple string handling
+* no external package installation
+* instant desktop execution
+* easy hotkey experimentation
+* visible procedural logic
+
+Students can therefore focus on **algorithmic understanding rather than environment configuration**.
+
+The objective of TextLab-AHK is not industrial NLP production.
+
+The objective is:
+
+> to make text-processing algorithms understandable.
+
+---
+
+## Core NLP / DH Concepts Demonstrated
+
+Each component of the software corresponds to a foundational text-processing concept.
+
+| Module           | Demonstrates                  |
+| ---------------- | ----------------------------- |
+| Corpus Loading   | text ingestion                |
+| Cleaning         | normalization / preprocessing |
+| Word Frequency   | token counting                |
+| Bigram / Trigram | n-gram construction           |
+| Corpus Stats     | lexical measurement           |
+| Hapax Legomena   | rare vocabulary behavior      |
+| KWIC Concordance | context retrieval             |
+| Notes / Export   | interpretive documentation    |
+
+This allows instructors to move students through a full visible workflow:
+
+raw text → cleaned corpus → token patterns → contextual reading → interpretation.
 
 ---
 
 ## Main Features
 
-### 1. Corpus Management
+### Corpus Loading
 
-Load textual material into the application from:
+Load corpus material from:
 
-* plain `.txt` files
-* copied OCR output
+* `.txt` files
+* OCR text
+* copied archive excerpts
 * clipboard text
-* pasted archival material
 
-Metadata can be attached manually for:
-
-* author
-* source
-* year
-* genre
-* archive notes
-
-This helps students understand that corpus analysis always begins with data acquisition and provenance.
+Useful for small to medium classroom corpora.
 
 ---
 
-### 2. Text Cleaning / Normalization
+### Cleaning / Normalization
 
-The cleaning panel allows preprocessing before analysis:
+Preprocessing options include:
 
-* lowercase normalization
-* punctuation stripping
-* number removal
+* lowercase conversion
+* punctuation removal
+* number stripping
 * whitespace normalization
-* removal of short words
-* custom regex find/replace transformations
+* short-word removal
+* regex substitutions
 
-This is pedagogically useful because students can see how preprocessing decisions radically alter downstream statistics.
-
-Excellent for demonstrating:
-
-* noise reduction
-* OCR cleanup
-* token regularization
-* corpus normalization
+This helps demonstrate how preprocessing choices alter downstream linguistic results.
 
 ---
 
-### 3. Quantitative Text Analysis
+### Frequency Analysis
 
-The Analyze tab currently includes:
+Generate:
 
-#### Word Frequency
+* word frequency tables
+* bigram frequencies
+* trigram frequencies
 
-Counts recurring lexical items and introduces bag-of-words logic.
+Students can directly observe lexical repetition and phrase recurrence.
 
-#### Bigram Frequency
+---
 
-Shows phrase recurrence and local co-occurrence.
+### Corpus Statistics
 
-#### Trigram Frequency
-
-Demonstrates larger lexical chunking.
-
-#### Corpus Statistics
-
-Generates:
+Quick descriptive metrics:
 
 * character count
 * token count
-* unique word count
-* lexical diversity estimate
+* unique vocabulary
+* lexical diversity
 
-Useful for explaining corpus descriptives.
-
-#### Hapax Legomena
-
-Lists words appearing only once in the corpus and introduces long-tail vocabulary behavior.
+Useful for introducing corpus descriptives.
 
 ---
 
-### 4. KWIC Concordance Engine
+### Hapax Legomena Detection
 
-KWIC = **Key Word In Context**
+Lists all words appearing only once.
 
-Allows students to search for any term and instantly inspect:
-
-* left context
-* keyword
-* right context
-
-with adjustable window size.
-
-Pedagogically this is one of the clearest ways to demonstrate:
-
-* context-sensitive meaning
-* collocational framing
-* discourse repetition
-* semantic nuance beyond raw frequency counts
-
-Students quickly learn that counting words is not enough; context matters.
+A simple but powerful introduction to vocabulary distribution.
 
 ---
 
-### 5. Humanities Research Notebook
+### KWIC Concordance
 
-An integrated Notes tab allows both instructor and students to maintain interpretive comments during computational exploration.
+Search a term and generate:
 
-This reinforces a key DH/NLP lesson:
+left context + keyword + right context.
 
-> computational output still requires human interpretation.
-
----
-
-### 6. Export System
-
-Export functions include:
-
-* corpus export
-* analysis export
-* KWIC export
-* notes export
-* full session report export
-
-Useful for assignments, lab reports, and classroom documentation.
+This is one of the clearest demonstrations of why context matters beyond frequency counts.
 
 ---
 
-## Included Global Hotkeys
+### Notes and Export (`app.ahk`)
 
-| Hotkey         | Function              |
-| -------------- | --------------------- |
-| Ctrl + Alt + V | Load clipboard corpus |
-| Ctrl + Alt + F | Run word frequency    |
-| Ctrl + Alt + K | Run KWIC concordance  |
-| Ctrl + Alt + S | Run corpus statistics |
+The full version includes:
 
----
+* research note taking
+* session documentation
+* exportable reports
 
-## Suggested Classroom Use Cases
-
-DH Text Microscope works especially well for:
-
-### Introductory NLP Demonstrations
-
-Students inspect visible code for tokenization, counting, and concordance.
-
-### Corpus Linguistics Exercises
-
-Run comparative frequency tests on speeches, novels, newspapers, or manifestos.
-
-### OCR Cleaning Workshops
-
-Demonstrate preprocessing with messy historical text.
-
-### Literary Pattern Discovery
-
-Search recurring ideological or symbolic vocabulary.
-
-### Algorithm Transparency Lessons
-
-Because all procedures are readable, students can modify the code and immediately observe consequences.
+Useful for DH interpretive workflows.
 
 ---
 
-## Technical Requirements
+## Hotkeys in `app-lite.ahk`
 
-* Windows OS
+| Hotkey         | Function                 |
+| -------------- | ------------------------ |
+| Ctrl + Alt + V | Load clipboard as corpus |
+| Ctrl + Alt + O | Open TXT file            |
+| Ctrl + Alt + C | Clean corpus             |
+| Ctrl + Alt + F | Word frequency           |
+| Ctrl + Alt + B | Bigram frequency         |
+| Ctrl + Alt + T | Trigram frequency        |
+| Ctrl + Alt + K | KWIC concordance         |
+| Ctrl + Alt + S | Corpus statistics        |
+| Ctrl + Alt + H | Hapax words              |
+| Ctrl + Alt + E | Export last result       |
+
+---
+
+## Suggested Educational Uses
+
+TextLab-AHK is particularly effective for:
+
+### Introductory NLP Courses
+
+Demonstrating what happens inside basic text algorithms.
+
+### Digital Humanities Labs
+
+Running lightweight literary or historical corpus inspection.
+
+### Corpus Linguistics Workshops
+
+Exploring lexical recurrence and phrase distribution.
+
+### OCR Cleanup Demonstrations
+
+Showing normalization on messy archival text.
+
+### Student Code Reading Exercises
+
+Because the source code is short and linear, students can modify functions and immediately see textual consequences.
+
+---
+
+## Installation
+
+### Requirements
+
+* Windows
 * AutoHotkey v2 installed
 
 Download AutoHotkey:
@@ -253,87 +264,76 @@ Download AutoHotkey:
 
 ---
 
-## Installation
+### Setup
 
-1. Install AutoHotkey v2.
-2. Save the application script as:
+Place both scripts in the same project folder:
 
-```text id="zjlwmf"
+```text
 app.ahk
+app-lite.ahk
+README.md
 ```
 
-3. Double-click to launch.
+Then simply run either:
 
-No external libraries required.
+* `app.ahk` for the full GUI desktop laboratory
+  or
+* `app-lite.ahk` for the lightweight no-GUI teaching version
+
+No external libraries are required.
 
 ---
 
 ## Recommended Teaching Workflow
 
-### Step 1 — Introduce Raw Corpus
+A productive classroom sequence is:
 
-Load a text and discuss textual noise.
+### 1. Load a Raw Corpus
 
-### Step 2 — Demonstrate Cleaning
+Show students an unprocessed text.
 
-Apply preprocessing and show changed textual state.
+### 2. Apply Cleaning
 
-### Step 3 — Run Frequency Analysis
+Demonstrate normalization decisions.
 
-Explain token counts and lexical repetition.
+### 3. Run Frequency Analysis
 
-### Step 4 — Demonstrate N-grams
+Discuss token repetition.
 
-Show how phrases emerge from token windows.
+### 4. Generate N-grams
 
-### Step 5 — Run KWIC
+Show phrase windows and co-occurrence.
 
-Move from quantitative counting to contextual reading.
+### 5. Run KWIC
 
-### Step 6 — Open the Source Code
+Move from counting to contextual interpretation.
 
-Walk students through the AutoHotkey functions so they understand the algorithms directly.
+### 6. Open the Source Code
 
-This final step is where the tool becomes unusually effective pedagogically.
+Walk through the AutoHotkey functions line by line.
 
----
-
-## Why AutoHotkey Instead of Python for Beginners?
-
-Python is more powerful, but not always more transparent for first exposure.
-
-AutoHotkey offers:
-
-* minimal syntax
-* visible GUI linkage
-* straightforward loops
-* easy string manipulation
-* no package installation burden
-
-Students can understand the mechanics faster because there is less infrastructural complexity.
-
-The goal is not industrial NLP production.
-
-The goal is:
-
-> algorithmic comprehension.
+This last stage is where TextLab-AHK becomes especially valuable: students can connect visible interface actions to visible procedural code.
 
 ---
 
 ## Conceptual Position
 
-DH Text Microscope is intentionally positioned between:
+TextLab-AHK sits between:
 
-* manual close reading
-* beginner NLP pedagogy
-* lightweight digital humanities experimentation
+* manual close reading,
+* digital humanities experimentation,
+* and introductory NLP pedagogy.
 
-It is meant to function as a bridge between humanities interpretation and computational method.
+It is intentionally small, hackable, and transparent.
+
+The software is best understood as:
+
+> a visible computational text sandbox.
 
 ---
 
 ## License
 
-Free for personal, academic, classroom, and experimental use.
+Free for academic, classroom, personal, and experimental use.
 
-Modification encouraged.
+Modification is encouraged.
