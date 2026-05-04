@@ -259,7 +259,7 @@ Download AutoHotkey:
 2. Save the application script as:
 
 ```text id="zjlwmf"
-DH_Text_Microscope.ahk
+app.ahk
 ```
 
 3. Double-click to launch.
